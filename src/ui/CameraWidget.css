@@ -1,0 +1,15 @@
+/*
+Place your custom CSS here
+*/
+CameraWidget {
+    position: relative;
+}
+
+#captureButton {
+
+    position: absolute;
+    top: 30px;
+    left: 30px;
+
+}
+

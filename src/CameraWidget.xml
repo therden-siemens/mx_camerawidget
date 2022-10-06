@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="mendix.camerawidget.CameraWidget" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Camera Widget</name>
+    <description>A widget to use the desktop webcam.</description>
+    <icon>
+        iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAMAAAC5zwKfAAAB8lBMVEUAAAAzmcxVgNVAgL9VjsZNgMxAgL9JgMhEiMxAj79DhslJhsJGi8VKispHhcxKjMVJisVHh8ZIicREicdHiMpGhcVHiMlHiMdHiMZIiMhHichIiMdGicdGiMdHiMdIiMdHiMZIiMdHiMdGiMhHiMdGiMdHiMhHiMdIh8dHiMhHh8ZHiMhHh8ZGiMdHiMdHiMdHicdHiMdHiMdHiMdHh8dHiMdHicdHiMdHiMdHiMdHiMdHiMdHiMdHiMdHiMdHiMdHiMdHiMdHiMdHiMdHiMdHiMdIiMdSkM5Skc5Skc9Tkc5Tks9WldFXlNJXldJYl9NbmNVbmdVcmdRgnthinthin9ljoNlvqeFvquJwquJwq+OCuu+Duu+DuvCEu++EvO+FvfCGvfGHvvGIvvKKwPOLwPSLwfSMwvSMwvWQxviRxviSx/mSyPmUyPqUyfqWyvuWyvyYzP2azf2dzv2ez/2l0/2m0/2n0/2n1P2o1P2x2P2z2f602v622/632/653P663f673f6+3/7A4P7L5f7M5v7N5v7O5/7Q6P7V6v7W6/7X6/7b7f7k8v7l8v7m8//o8//p9P/t9v/u9v/v9//w9//w+P/x+P/0+f/0+v/2+//3+//4+//4/P/5/P/6/P/6/f/7/f/8/f/8/v/9/v////+TYY7iAAAARXRSTlMABQYICQoMDg8QExUWGBkfIyQnKSssL1ZaXF18f4OJjpCSlpianJ2eoKGiwcLHycrT1tvc4OHi4+jp6+7z9PX3+Pn6+/yVTHSzAAAAAWJLR0SlLrlKLwAAAlBJREFUWMPt2Nl7C2EUBvCgiqK21r5TFDV2qaqo5h21RGttae3VRIL2BEWE2qraqNhbugnO/+mCTjppJvPNzHfB88x7l+Q8v5tZvpzX43EjOdMWlyreCgimwrtlw6KpObiijT5Yjq90ngGXv8oPBBoam8MkmHBzY30AqF6Zl82buw3q2SBZTvCMCqVwvDe/HEevka1cPYw9xZneHC9O3iSbidRh90y9N3kr6trIdtpOoGySDlyBmgg5SOQQlukuSLV6hRzlslo59sKsw2lymFNYnfam7FdbnILXUZmvgQtxnBznGBZoYAnOOwfPYY0GKrjoHLyAMg3ci5BzsAXlGliFW87B2ziggQBJCOCCLigTfJoc4owMfEnEdTN3u/v7OqNi4GvOnncP0zPtH5mZXwmBT9gow7HRmdgAMzP3C4FJQ5AH7/8ZefHr7xdC4HdjkHuJiKI92mchkHPlERG9YYlgD9Fzlgl+InovFRwhSkkFWf+7C/6vYMoEtHzbfDYBLd/YCRPQ8qMXNwEtvxxyvRB5hIio0yL4YMgYfEtERM9SlkCKDRqCj3VHwFfRY7S918B7OTpx7wMzc5f4uRxP9P3M1H4kO9IDd7qHv3VF3b8iLvgPgwdlLz5SVrPgmNVMwSW5y6P09Vb6Ai69IpBTYqyVXLNUzZZcBC3XNUt5iuSqylOwA7U37HrhWmwvyKzninfhiN26rwY7i8YXiDM22y8kN03PVnFOXLIPCDQ0hVpFrdZQU30A8C2dYNDCFpbYKXXXzzKrnf2ilt+sdnZjK78ByPvrURxu758AAAAASUVORK5CYII=
+    </icon>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="identifier" type="string" defaultValue="videoElement" required="true">
+                <caption>HTML identifier (id)</caption>
+                <description>Enter the identifier. You might need this later if you want to store a still of the webcam video as an image.</description>
+            </property>
+            <property key="allowCapture" type="boolean" defaultValue="true" required="true">
+                <caption>Allow capture?</caption>
+                <description>Whether or not to display a button to capture the video as a still photo. Can be processed later.</description>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Source">
+
+                <property key="fileEntity" type="file" required="true">
+                    <caption>Image (i.e. file) Entity</caption>
+                    <description>Provide an entity of generalization System.File which shall serve as context to store the captured photo.</description>
+                </property>
+
+                <property key="base64String" type="attribute">
+                    <caption>Base64 Attribute</caption>
+                    <description>The attribute that shall hold the bas64 encoded captured image.</description>
+                    <attributeTypes>
+                        <attributeType name="String"/>
+                    </attributeTypes>
+                </property>
+
+            </propertyGroup>
+    </properties>
+</widget>
