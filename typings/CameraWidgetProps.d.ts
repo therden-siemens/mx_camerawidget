@@ -5,6 +5,7 @@
  */
 import { CSSProperties } from "react";
 import { DynamicValue, EditableValue, FileValue } from "mendix";
+import { Big } from "big.js";
 
 export interface CameraWidgetContainerProps {
     name: string;
@@ -15,6 +16,8 @@ export interface CameraWidgetContainerProps {
     allowCapture: boolean;
     fileEntity: DynamicValue<FileValue>;
     base64String: EditableValue<string>;
+    widthDimension?: EditableValue<Big>;
+    heightDimension?: EditableValue<Big>;
 }
 
 export interface CameraWidgetPreviewProps {
@@ -26,4 +29,6 @@ export interface CameraWidgetPreviewProps {
     allowCapture: boolean;
     fileEntity: string;
     base64String: string;
+    widthDimension: string;
+    heightDimension: string;
 }

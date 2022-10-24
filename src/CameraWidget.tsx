@@ -5,26 +5,31 @@ import { CameraWidgetContainerProps } from "../typings/CameraWidgetProps";
 
 import "./ui/CameraWidget.css";
 
-export function CameraWidget({ identifier, allowCapture, base64String }: CameraWidgetContainerProps): ReactElement {
+export function CameraWidget({ identifier, allowCapture, base64String, widthDimension, heightDimension}: CameraWidgetContainerProps): ReactElement {
 
     let button;
 
     const webcamRef = useRef<Webcam>(null);
     const [_imgSrc, setImgSrc] = useState<string | null>(null);
+
+    const videoConstraints = {
+        width: Number(widthDimension) || 1200,
+        height: Number(heightDimension) || 720
+    };
     
-    const capture = useCallback(() => {
-        const imageSrc = webcamRef.current?.getScreenshot();
+    const capture = useCallback( () => {
+        const imageSrc = webcamRef.current?.getScreenshot(videoConstraints);
 
         console.log("Start capture");
 
         if (imageSrc != null) {
 
             setImgSrc(imageSrc);
-            base64String.setTextValue(imageSrc); 
+            base64String.setValue(imageSrc); 
             console.log(imageSrc);
         }
                     
-    }, [webcamRef, setImgSrc]);
+    }, [webcamRef, setImgSrc, base64String]);
        
       
     if (allowCapture) {
@@ -37,7 +42,9 @@ export function CameraWidget({ identifier, allowCapture, base64String }: CameraW
     
     return (
         <div className="CameraWidget">
-            <Webcam audio={false} ref={webcamRef} id={identifier} screenshotFormat="image/jpeg"/>
+        
+                <Webcam audio={false} ref={webcamRef} id={identifier} screenshotFormat="image/jpeg" minScreenshotHeight={Number(heightDimension)|| 1200} minScreenshotWidth={Number(widthDimension) || 720}/>
+
             {button}
         </div>
     );
